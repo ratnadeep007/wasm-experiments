@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Webassembly example</title>
+	</head>
+	<body>
+		<script type="text/javascript" src="./wasmloader.js"></script>
+		<script type="text/javascript">
+			if (!('WebAssembly' in window)) {
+				alert('You need Webassembly enabled browser')
+			}
+
+			loadWebAssembly('program.wasm')
+				.then(instance => {
+					var exports = instance.exports;
+					console.log('1 + 2 = ' + exports.add(1,2));
+					console.log('1 - 2 = ' + exports.substract(1,2));
+					console.log('1 * 2 = ' + exports.multiply(1,2));
+					console.log('1 / 2 = ' + exports.divide(1,2));
+					console.log('1 % 2 = ' + exports.mod(1,2));
+					console.log('Square root of 9 = ' + exports.square_root(9));
+				});
+		</script>
+	</body>
+</html>

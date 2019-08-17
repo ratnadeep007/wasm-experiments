@@ -4,8 +4,9 @@
   "description": "",
   "main": "program.js",
   "scripts": {
-    "compile": "wa compile -o program.wasm program.c",
+    "compile": "wa compile -O -o program.wasm program.c",
     "start": "npm run compile && node program.js",
+    "dev:serve": "serve -s .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -3,13 +3,13 @@
 		<title>Webassembly example</title>
 	</head>
 	<body>
-		<script type="text/javascript" src="./wasmloader.js"></script>
+		<script type="text/javascript" src="./assets/js/wasmloader.js"></script>
 		<script type="text/javascript">
 			if (!('WebAssembly' in window)) {
 				alert('You need Webassembly enabled browser')
 			}
 
-			loadWebAssembly('program.wasm')
+			loadWebAssembly('./assets/wasm/program.wasm')
 				.then(instance => {
 					var exports = instance.exports;
 					console.log('1 + 2 = ' + exports.add(1,2));

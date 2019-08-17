@@ -6,7 +6,7 @@
 
 const wasm = require("webassembly");
 
-const loaded = wasm.load("program.wasm");
+const loaded = wasm.load("./program.wasm");
 
 loaded.then(module => {
 	console.log("1 + 2 = " + module.exports.add(1,2));
@@ -15,4 +15,7 @@ loaded.then(module => {
 	console.log("1 / 2 = " + module.exports.divide(1,2));
 	console.log("1 % 2 = " + module.exports.mod(1,2));
 	console.log("Square root of 9 = " + module.exports.square_root(9));
+})
+.catch(err => {
+	console.log("Error loading wasm file:", err);
 })

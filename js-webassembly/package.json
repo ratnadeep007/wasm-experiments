@@ -4,9 +4,10 @@
   "description": "",
   "main": "program.js",
   "scripts": {
-    "compile": "wa compile -O -o program.wasm program.c",
-    "start": "npm run compile && node program.js",
-    "dev:serve": "serve -s .",
+    "wasm:compile": "wa compile -O -o node-codes/program.wasm node-codes/program.c",
+    "node-wasm:start": "npm run wasm:compile && cd node-codes && node program.js",
+    "browser:compile": "wa compile -O -o assets/wasm/program.wasm node-codes/program.c",
+    "dev:serve": "npm run browser:compile && serve -s .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,5 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "webassembly": "^0.11.0"
+  },
+  "devDependencies": {
+    "serve": "^11.1.0"
   }
 }

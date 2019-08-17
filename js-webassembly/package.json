@@ -1,0 +1,17 @@
+{
+  "name": "npm-webassembly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "program.js",
+  "scripts": {
+    "compile": "wa compile -o program.wasm program.c",
+    "start": "npm run compile && node program.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webassembly": "^0.11.0"
+  }
+}

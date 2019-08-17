@@ -1,21 +1,26 @@
 #include <webassembly.h>
+#include <math.h>
 
-export int add(int a, int b) {
+export double add(double a, double b) {
 	return a + b;
 }
 
-export int substract(int a, int b) {
+export double substract(double a, double b) {
 	return a - b;
 }
 
-export int multiply(int a, int b) {
+export double multiply(double a, double b) {
 	return a * b;
 }
 
-export int divide(int a, int b) {
+export double divide(double a, double b) {
 	return a / b;
 }
 
-export int mod(int a, int b) {
+export double mod(int a, int b) {
 	return a % b;
+}
+
+export double square_root(double a) {
+	return sqrt(a);
 }

@@ -14,4 +14,5 @@ loaded.then(module => {
 	console.log("1 X 2 = " + module.exports.multiply(1,2));
 	console.log("1 / 2 = " + module.exports.divide(1,2));
 	console.log("1 % 2 = " + module.exports.mod(1,2));
+	console.log("Square root of 9 = " + module.exports.square_root(9));
 })

@@ -8,12 +8,14 @@
     "node-wasm:start": "npm run wasm:compile && cd node-codes && node program.js",
     "browser:compile": "wa compile -O -o assets/wasm/program.wasm node-codes/program.c",
     "dev:serve": "npm run browser:compile && serve -s .",
+    "tailwind:create": "tailwind build assets/css/styles.css -o assets/css/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "tailwindcss": "^1.1.2",
     "webassembly": "^0.11.0"
   },
   "devDependencies": {

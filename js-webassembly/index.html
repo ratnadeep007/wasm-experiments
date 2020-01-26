@@ -1,87 +1,93 @@
 <html>
-	<head>
-		<title>Webassembly example</title>
-		<link rel="stylesheet" href="./assets/css/styles.css">
-	</head>
-	<body>
-		<nav class="flex items-center justify-center sm:justify-center md:justify-center lg:justify-between xl:justify-between flex-wrap bg-white bg-white-500 p-6 sm:p-6 md:p-3 lg:p3 xl:p-3 shadow-lg">
-			<div class="flex items-center flex-shrink-0 text-black-lg-200">
-				<img src="https://raw.githubusercontent.com/WebAssembly/web-assembly-logo/master/dist/logo/web-assembly-logo-256px.png" class="w-24 h-52 24:w-24" alt="WebAssembly Logo">
-				<div class="text-2xl ml-2">Browser Demo</div>
-			</div>
-		</nav>
 
-		<main>
-			<div class="container mx-auto mt-4 flex justify-center">
-				<div class="shadow-md rounded overflow-hidden w-1/2 h-auto p-3">
-					<div id="result" class="rounded overflow-hidden w-full h-1/6 text-right p-3 text-4xl bg-green-200">
-						0.0
-					</div>
-					<div class="flex flex-row w-full justify-center">
-						<div id="czero" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">C</div>
-						<div id="cezero" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">CE</div>
-						<div id="positive-negative" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">+/-</div>
-						<div id="sqrt" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">&#x221A;</div>
-					</div>
-					<div class="flex flex-row w-full justify-center">
-						<div id="one" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">1</div>
-						<div id="two" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">2</div>
-						<div id="three" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">3</div>
-						<div id="add" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">+</div>
-					</div>
-					<div class="flex flex-row w-full justify-center">
-						<div id="four" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">4</div>
-						<div id="five" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">5</div>
-						<div id="six" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">6</div>
-						<div id="subs" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">-</div>
-					</div>
-					<div class="flex flex-row w-full justify-center">
-						<div id="seven" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">7</div>
-						<div id="eight" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">8</div>
-						<div id="nine" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">9</div>
-						<div id="multiply" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">*</div>
-					</div>
-					<div class="flex flex-row w-full justify-center">
-						<div id="mod" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">%</div>
-						<div id="zero" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">0</div>
-						<div id="equals" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">=</div>
-						<div id="divide" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">/</div>
-					</div>
+<head>
+	<title>Webassembly example</title>
+	<link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+	<nav
+		class="flex items-center justify-center sm:justify-center md:justify-center lg:justify-between xl:justify-between flex-wrap bg-white bg-white-500 p-6 sm:p-6 md:p-3 lg:p3 xl:p-3 shadow-lg">
+		<div class="flex items-center flex-shrink-0 text-black-lg-200">
+			<img
+				src="https://raw.githubusercontent.com/WebAssembly/web-assembly-logo/master/dist/logo/web-assembly-logo-256px.png"
+				class="w-24 h-52 24:w-24" alt="WebAssembly Logo">
+			<div class="text-2xl ml-2">Browser Demo</div>
+		</div>
+	</nav>
+
+	<main>
+		<div class="container mx-auto mt-4 flex justify-center">
+			<div class="shadow-md rounded overflow-hidden w-1/2 h-auto p-3">
+				<div id="result" class="rounded overflow-hidden w-full h-1/6 text-right p-3 text-4xl bg-green-200">
+					0.0
 				</div>
-			</div>	
-		</main>
+				<div class="flex flex-row w-full justify-center">
+					<div id="czero" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">C</div>
+					<div id="cezero" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">CE</div>
+					<div id="positive-negative" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">+/-</div>
+					<div id="sqrt" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">&#x221A;</div>
+				</div>
+				<div class="flex flex-row w-full justify-center">
+					<div id="one" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">1</div>
+					<div id="two" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">2</div>
+					<div id="three" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">3</div>
+					<div id="add" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">+</div>
+				</div>
+				<div class="flex flex-row w-full justify-center">
+					<div id="four" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">4</div>
+					<div id="five" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">5</div>
+					<div id="six" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">6</div>
+					<div id="subs" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">-</div>
+				</div>
+				<div class="flex flex-row w-full justify-center">
+					<div id="seven" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">7</div>
+					<div id="eight" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">8</div>
+					<div id="nine" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">9</div>
+					<div id="multiply" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">*</div>
+				</div>
+				<div class="flex flex-row w-full justify-center">
+					<div id="mod" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">%</div>
+					<div id="zero" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">0</div>
+					<div id="equals" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">=</div>
+					<div id="divide" class="w-1/4 text-center m-3 bg-teal-200 p-2 hover:bg-teal-300">/</div>
+				</div>
+			</div>
+		</div>
+	</main>
 
-		<footer>
-			
-		</footer>
+	<footer>
 
-		<script type="text/javascript" src="./assets/js/wasmloader.js"></script>
-		<script type="text/javascript">
-			// Basic check is browser supports webassembly
-			if (!('WebAssembly' in window)) {
-				alert('You need Webassembly enabled browser')
-			}
+	</footer>
 
-			var cadd, csubs, cmultiply, cdivide, cmod, csquare_root;
+	<script type="text/javascript" src="./assets/js/wasmloader.js"></script>
+	<script type="text/javascript">
+		// Basic check is browser supports webassembly
+		if ( !( 'WebAssembly' in window ) ) {
+			alert( 'You need Webassembly enabled browser' )
+		}
 
-			loadWebAssembly('./assets/wasm/program.wasm')
-				.then(instance => {
-					var exports = instance.exports;
-					console.log('1 + 2 = ' + exports.add(1,2));
-					console.log('1 - 2 = ' + exports.substract(1,2));
-					console.log('1 * 2 = ' + exports.multiply(1,2));
-					console.log('1 / 2 = ' + exports.divide(1,2));
-					console.log('1 % 2 = ' + exports.mod(1,2));
-					console.log('Square root of 9 = ' + exports.square_root(9));
-					
-					cadd = exports.add;
-					csubs = exports.substract;
-					cmultiply = exports.multiply;
-					cdivide	= exports.divide;
-					cmod = exports.mod;
-					csquare_root = exports.square_root;
-				});
-		</script>
-		<script src="assets/js/main.js"></script>
-	</body>
+		var cadd, csubs, cmultiply, cdivide, cmod, csquare_root;
+
+		loadWebAssembly( './assets/wasm/program.wasm' )
+			.then( instance => {
+				var exports = instance.exports;
+				console.log( '1 + 2 = ' + exports.add( 1, 2 ) );
+				console.log( '1 - 2 = ' + exports.substract( 1, 2 ) );
+				console.log( '1 * 2 = ' + exports.multiply( 1, 2 ) );
+				console.log( '1 / 2 = ' + exports.divide( 1, 2 ) );
+				console.log( '1 % 2 = ' + exports.mod( 1, 2 ) );
+				console.log( 'Square root of 9 = ' + exports.square_root( 9 ) );
+
+				cadd = exports.add;
+				csubs = exports.substract;
+				cmultiply = exports.multiply;
+				cdivide = exports.divide;
+				cmod = exports.mod;
+				csquare_root = exports.square_root;
+			} );
+	</script>
+	<script src="assets/js/main.js"></script>
+</body>
+
 </html>

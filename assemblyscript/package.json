@@ -1,0 +1,19 @@
+{
+  "name": "assemblyscript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "assemblyscript": "^0.9.0",
+    "browser-sync": "^2.26.7"
+  },
+  "scripts": {
+    "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --validate --sourceMap --debug",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --validate --sourceMap --optimize",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+    "dev": "npm run asbuild && cp build/optimized.wasm web/ && cp wasm_loader.js web/ && browser-sync start -s web/ --files web/"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": "^0.9.0"
+  }
+}
